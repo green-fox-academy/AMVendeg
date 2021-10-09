@@ -1,0 +1,114 @@
+/* style for my first website exercise: 
+
+Including: 
+- header
+- logo
+- nav - menu
+- title
+- subtitle
+- h1, h2-s
+- body background
+- articles
+
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(assets/hatterkep.png);
+}
+
+header {
+    background-color: #333333;
+    height: 40px;
+    padding-top: 10px;
+}
+
+.logo {
+    padding-left: 10%;
+    display: block;
+    float: left;
+}
+
+nav {
+    display: block;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    float: right;
+    padding-right: 10%;
+    margin-top:5px;
+}
+
+
+li {
+    display: inline;
+    margin-right: 40px;
+}
+
+li:last-child {
+    margin-right: 0px;
+}
+
+
+a {
+    font-family: 'verdana';
+    display: block;
+    color: #ff0099;
+    text-transform: uppercase;
+}
+    
+
+main {
+    padding-left: 10%;
+    padding-right: 10%;
+    overflow: hidden;
+    margin-bottom: 10%;
+}
+
+h1 {
+    margin-top: 5%;
+    font-size: 48px;
+    line-height: 100px;
+}
+
+h2 {
+    font-size: 36px;
+    text-align: center;
+    line-height: 50px;
+    margin-bottom: 5%;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 3rem;
+}
+
+
+.subtitle {
+    font-family: 'Verdana';
+    font-size: 16px;
+    color: #ff0099;
+    line-height: 1.5rem;
+    text-align: justify;
+}
+
+.typo {
+    text-align: center;
+    line-height: 100px;
+    letter-spacing: 5px;
+}
+
+
+p {
+    font-family: 'Verdana';
+    font-size: 14px;
+}
+
