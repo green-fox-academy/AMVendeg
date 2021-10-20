@@ -78,3 +78,7 @@ console.log('"De forditva is lehet. Ha idézni szeretnék." - magamtól.');     
 console.log('Almás' + 'pite');              // Almáspite
 console.log('My lucky number is: ' + 9);    // szóközre figyelni kell, különben nem lesz szép.
 
+
+
+// maradék-os osztás nem ÷, hanem %
+console.log(40 % 11);                       // print 
