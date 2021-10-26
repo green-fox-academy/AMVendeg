@@ -88,3 +88,25 @@ console.log("The volume of the cuboid is: " + cuboidVolume);
 
 
 
+// következő feladat: seconds-in-a-day
+
+let currentHours: number = 14;
+let currentMinutes: number = 34;
+let currentSeconds: number = 42;
+
+// Write a program that prints the remaining seconds (as an integer) from a
+// day if the current time is represented by these variables
+
+let endHour: number = 23;
+let endMinutes: number = 59;
+let endSeconds: number = 59;
+
+let remainingHour: number = (endHour-currentHours) * 3600;                         // 3600 másodperc egy óra
+let remainingMin: number = (endMinutes-currentMinutes) * 60;                      // 60 masodperc egy perc
+let remainingSec: number = endSeconds - currentSeconds;                          // eleve másodperc :D 
+
+console.log((remainingHour + remainingMin + remainingSec) + " sec");
+
+// mindez órában, percben és másodpercben, levéve a / 3600-t
+console.log("The remaining time of the day is: " + remainingHour + ":" + remainingMin + ":" + remainingSec);        // prints: 9:25:17
+
