@@ -16,7 +16,7 @@ let y1: number = 0;
 let x2: number = 600;
 let y2: number = 400;
 
-function drawDiagonals(x1, y1, x2, y2) {
+function drawSingleLine(x1, y1, x2, y2) {
     ctx.beginPath;
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
@@ -30,6 +30,6 @@ if (x1 === 0 && y1 === 0) {
 } else ctx.strokeStyle = 'red';
 
 // left to right diagonal
-drawDiagonals(x1,y1,x2,y2);
+drawSingleLine(x1,y1,x2,y2);
 // right to left diagonal
-drawDiagonals(x2,y1,x1,y2);
+drawSingleLine(x2,y1,x1,y2);
