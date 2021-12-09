@@ -14,19 +14,18 @@ When I asked to take his picture outside one of IBM’s New York City offices,
 he told me that he wasn’t really into the whole organizer profile thing.
 */
 
-
 class BlogPost {
-    authorName: string;
-    blogTitle: string;
-    blogText: string;
-    publicationDate: string;
+  authorName: string;
+  blogTitle: string;
+  blogText: string;
+  publicationDate: string;
 
-    constructor (authorName: string, blogTitle: string, blogText: string, publicationDate: string) {
-        this.authorName = authorName;
-        this.blogTitle = blogTitle;
-        this.blogText = blogText;
-        this.publicationDate = publicationDate;
-    }
+  constructor (authorName: string, blogTitle: string, blogText: string, publicationDate: string) {
+    this.authorName = authorName;
+    this.blogTitle = blogTitle;
+    this.blogText = blogText;
+    this.publicationDate = publicationDate;
+  }
 }
 
 let blog1 = new BlogPost('Jones', 'Insight of music production', 'this would be a long content...', '07/12/2021');
