@@ -18,29 +18,28 @@ Run the test file with ts-node
 
 import * as fs from 'fs';
 
-
 export class Counter {
-    private counter: number;
+  private counter: number;
 
     constructor (counter: number = 0) {
-        this.counter = counter;
+      this.counter = counter;
     }
 
     add(addNumber: number = 0) {
-        return this.counter += addNumber;
+      return this.counter += addNumber;
     }
 
     get() {
-        return this.counter;
+      return this.counter;
     }
 
     reset() {
-        return this.counter = 0;
+      return this.counter = 0;
     }
 
     export() {
-        let counterContent: string = this.counter.toString();
-        fs.writeFileSync('counterLog.txt', counterContent);
+      let counterContent: string = this.counter.toString();
+      fs.writeFileSync('counterLog.txt', counterContent);
     }
 }
 
@@ -49,3 +48,6 @@ myCounter.add(345);
 // myCounter.reset();
 myCounter.export();
 console.log(myCounter);
+
+
+
