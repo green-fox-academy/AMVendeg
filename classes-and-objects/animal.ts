@@ -9,26 +9,25 @@ Every animal can play() which increases both its hunger and thirst by one
 */
 
 export class Animal {
-    hungerValue: number;
-    thirstValue: number;
+  hungerValue: number;
+  thirstValue: number;
 
-    constructor (hungerValue: number = 50, thirstValue: number = 50) {
-        this.hungerValue = hungerValue;
-        this.thirstValue = thirstValue;
-    }
+  constructor (hungerValue: number = 50, thirstValue: number = 50) {
+    this.hungerValue = hungerValue;
+    this.thirstValue = thirstValue;
+  }
 
-    eat() {
-       this.hungerValue--;
-    }
+  eat() {
+    this.hungerValue--;
+  }
 
-    drink() {
-        this.thirstValue--;
-    }
+  drink() {
+    this.thirstValue--;
+  }
 
-    play() {
-       this.hungerValue++;
-
-    }
+  play() {
+    this.hungerValue++;
+  }
 } 
 
 // When creating a new animal instance these values must be set to the default 50 value
