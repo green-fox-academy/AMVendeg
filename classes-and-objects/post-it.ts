@@ -11,42 +11,41 @@ a yellow with green text: "Superb!"
 // I am not sure the task say, I practice to create class object or I need to create new PostIt, new instance
 
 class PostItExample {
-    backgroundColor: 'turquoise';
-    textOnIt: 'thjis is the text on the postit';
-    textColor: 'black';
+  backgroundColor: 'turquoise';
+  textOnIt: 'thjis is the text on the postit';
+  textColor: 'black';
 }
 
 class postIExample1 {
-    backgroundColor: 'orange';
-    textOnIt: 'Idea 1';
-    textColor: 'blue';
+  backgroundColor: 'orange';
+  textOnIt: 'Idea 1';
+  textColor: 'blue';
 }
 
 class postItExample2 {
-    backgroundColor: 'pink';
-    textOnIt: 'Awesome';
-    textColor: 'black';
+  backgroundColor: 'pink';
+  textOnIt: 'Awesome';
+  textColor: 'black';
 }
 
 class postItExample3 {
-    backgroundcolor: 'yellow';
-    textOnIt: "Superb";
-    textColor: 'green';
+  backgroundcolor: 'yellow';
+  textOnIt: "Superb";
+  textColor: 'green';
 }
-
 
 // // I am not sure the task say, I practice to create class object or I need to create new PostIt, new instance
 
 class PostIt {
-    backgroundColor: string;
-    textOnIt: string;
-    textColor: string;
+  backgroundColor: string;
+  textOnIt: string;
+  textColor: string;
 
-    constructor (backgroundColor: string, textOnIt: string, textColor: string) {
-        this.backgroundColor = backgroundColor;
-        this.textOnIt = textOnIt;
-        this.textColor = textColor;
-    }
+  constructor (backgroundColor: string, textOnIt: string, textColor: string) {
+    this.backgroundColor = backgroundColor;
+    this.textOnIt = textOnIt;
+    this.textColor = textColor;
+  }
 }
 
 let postitmyversion = new PostIt('turquoise', 'This is on the post it', 'white');
