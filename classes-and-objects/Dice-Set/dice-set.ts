@@ -35,24 +35,19 @@ class DiceSet {
   // You can reroll with reroll()
   // Your task is to roll the dice until all of the dice are 6
   
-  let diceSet = new DiceSet();
+  let diceSet = new DiceSet(); 
+  let rollCounter: number = 1;
+  console.log(diceSet.roll());
+  console.log('-------------------');
 
-  for (let i: number = 0; i < DiceSet.length; i++) {
+  for (let i: number = 0; i < diceSet.numOfDices; i++) {
 
-      diceSet.roll();
-
-      if (diceSet.getCurrent(i) < 6) {
-        diceSet.reroll();
-        console.log(diceSet.getCurrent());
-        console.log("------------------");
-
-      } else {
-        diceSet.getCurrent();
-        console.log("------------------");
-      }
+    while (diceSet.getCurrent(i) < 6) {
+      rollCounter++;
+      diceSet.reroll(i);
+      console.log(diceSet.getCurrent());
+      console.log('--------------------');
+      } 
   }
 
-  console.log(diceSet.getCurrent());
-  
-
-// not dome yet, I'am working on it
+  console.log(`It took ${rollCounter} rolls.`);
