@@ -11,7 +11,7 @@ import { Animal } from './animal';
 
 class Farm {
 
-  public listOfAnimals: Animal [] = [];
+  public listOfAnimals: Animal[] = [];
   public farmLimit: number = 0;
 
   constructor (farmLimit: number = 0) {
@@ -25,19 +25,31 @@ class Farm {
     }
   }
 
-  getListOfAnimals(): Animal [] {
+  getListOfAnimals(): Animal[] {
     return this.listOfAnimals;
   }
 
-
-  sell() {
+  // minimum count
+  getMinHunger(): number {
+    let leastHungry = Infinity;
     for (let i: number = 0; i < this.listOfAnimals.length; i++) {
-      let leastHungry = Math.min(this.listOfAnimals[i].getHunger());
-      if (this.listOfAnimals[i].getHunger() === leastHungry) {
+      if (this.listOfAnimals[i].getHunger() < leastHungry) {
+         leastHungry = this.listOfAnimals[i].getHunger();
+      }
+    } 
+    return leastHungry;
+  }
+
+  sell(): Animal[] {
+    const minHunger: number = this.getMinHunger();
+    for (let i: number = 0; i < this.listOfAnimals.length; i++) {
+      if (this.listOfAnimals[i].getHunger() === minHunger) {
         this.listOfAnimals.splice(i, 1);
       }
     }
-  }
+    return this.listOfAnimals; 
+  } 
+
 }
 
 let myDog = new Animal();
@@ -63,3 +75,4 @@ myCat.drink();
 myFarm.sell();
 
 console.log(myFarm);
+
