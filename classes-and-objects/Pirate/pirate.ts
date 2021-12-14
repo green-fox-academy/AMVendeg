@@ -18,13 +18,13 @@ Add a parrot.
 */
 
 class Pirate {
-  toxicateLevel: number;
+  public toxicateLevel: number;
 
   constructor (toxicateLevel: number = 0) {
     this.toxicateLevel = toxicateLevel;
   }
 
-  getToxicLevel() {
+  public getToxicLevel() {
     console.log(`Me toxic level: ${this.toxicateLevel}`);
 
     if (this.toxicateLevel === 0) {
@@ -32,11 +32,11 @@ class Pirate {
     }
   }
 
-  drinkSomeRum() {
+  public drinkSomeRum() {
     this.toxicateLevel++;
   }
 
-  isDrunk(): boolean {
+  public isDrunk(): boolean {
     // without "else {}" can work 
     if (this.toxicateLevel >= 4) {
       return true;
@@ -44,12 +44,12 @@ class Pirate {
       return false;
   }
 
-  isDrunk2(): boolean {
+  public isDrunk2(): boolean {
     // if else quickly version - ternary conditional operator
     return this.toxicateLevel >= 4 ? true : false;
   }
 
-  howItsGoingMate() {
+  public howItsGoingMate() {
     if (this.toxicateLevel >= 4) {
       console.log('Pour me anudder!');
     } else {
@@ -57,7 +57,7 @@ class Pirate {
     }
   }
 
-  getSleep() {
+  public getSleep() {
    this.toxicateLevel = 0;
   }
 }
