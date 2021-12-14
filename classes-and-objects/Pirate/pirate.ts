@@ -33,7 +33,20 @@ class Pirate {
   }
 
   drinkSomeRum() {
-    return this.toxicateLevel++;
+    this.toxicateLevel++;
+  }
+
+  isDrunk(): boolean {
+    // without "else {}" can work 
+    if (this.toxicateLevel >= 4) {
+      return true;
+    } 
+      return false;
+  }
+
+  isDrunk2(): boolean {
+    // if else quickly version - ternary conditional operator
+    return this.toxicateLevel >= 4 ? true : false;
   }
 
   howItsGoingMate() {
@@ -45,7 +58,7 @@ class Pirate {
   }
 
   getSleep() {
-    return this.toxicateLevel = 0;
+   this.toxicateLevel = 0;
   }
 }
 export { Pirate };
