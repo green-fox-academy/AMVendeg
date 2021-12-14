@@ -19,18 +19,18 @@ class Farm {
     this.farmLimit = farmLimit;
   }
 
-  breed(newAnimal: Animal): void {
+  public breed(newAnimal: Animal): void {
     if (this.listOfAnimals.length < this.farmLimit) {
       this.listOfAnimals.push(newAnimal);
     }
   }
 
-  getListOfAnimals(): Animal[] {
+  public getListOfAnimals(): Animal[] {
     return this.listOfAnimals;
   }
 
   // minimum count
-  getMinHunger(): number {
+  public getMinHunger(): number {
     let leastHungry = Infinity;
     for (let i: number = 0; i < this.listOfAnimals.length; i++) {
       if (this.listOfAnimals[i].getHunger() < leastHungry) {
@@ -40,7 +40,7 @@ class Farm {
     return leastHungry;
   }
 
-  sell(): Animal[] {
+  public sell(): Animal[] {
     const minHunger: number = this.getMinHunger();
     for (let i: number = 0; i < this.listOfAnimals.length; i++) {
       if (this.listOfAnimals[i].getHunger() === minHunger) {
