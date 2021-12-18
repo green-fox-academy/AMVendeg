@@ -4,22 +4,31 @@ import { Tree } from './tree';
 
 class Garden {
     listOfPlants: Flower [] | Tree []; 
+    
 
     constructor() {
         this.listOfPlants = [];
+        
     }
 
-    addPlantToGarden(plant: Flower | Tree): void {
+    addPlants(plant: Flower | Tree ) {
         this.listOfPlants.push(plant);
+        return this.listOfPlants;
     }
 
-    getGarden() {
-        console.log(this.listOfPlants);
+    getGarden(): void {
+        for(let i: number = 0; i < this.listOfPlants.length; i++) {
+            console.log(this.listOfPlants[i]);
+        }
     }
+   
 }
 
 let myGarden = new Garden();
-let blueFlower = new Flower();
-let orangeTree = new Tree();
-myGarden.addPlantToGarden(blueFlower);
-myGarden.addPlantToGarden(orangeTree);
+let flower = new Flower('blue');
+let tree = new Tree('orange');
+
+myGarden.addPlants(flower);
+myGarden.addPlants(tree);
+
+myGarden.getGarden();
