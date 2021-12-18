@@ -1,26 +1,9 @@
-import { Plants } from './plants';
+import { Plant } from './plant';
 
-class Flower extends Plants {
+class Flower extends Plant {
 
     constructor(color: string = '') {
-        super(color);
-    }
-
-    needWater(): boolean {
-        if (this.waterAmount < 5) {
-            console.log(`The ${this.color} flower needs water`);
-            return true;
-        } else {
-            console.log(`The ${this.color} Tree doesn't need water`);
-            return false;
-        }
-    }
-
-    getWater(waterAmount:number): void {
-        let waterAbsorb = waterAmount * 0.75;
-        if (this.waterAmount < 5) {
-            this.waterAmount += waterAbsorb;
-        }
+        super(color, 75, 5);
     }
 }
 
