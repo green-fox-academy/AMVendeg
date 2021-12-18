@@ -6,11 +6,13 @@ class Flower extends Plants {
         super(color);
     }
 
-    needWater() {
+    needWater(): boolean {
         if (this.waterAmount < 5) {
-            console.log(`The ${this.color} flower need water`);
+            console.log(`The ${this.color} flower needs water`);
+            return true;
         } else {
             console.log(`The ${this.color} Tree doesn't need water`);
+            return false;
         }
     }
 
