@@ -18,30 +18,66 @@ Add a parrot.
 */
 
 class Pirate {
-  public toxicateLevel: number;
 
-  constructor (toxicateLevel: number = 0) {
-    this.toxicateLevel = toxicateLevel;
+  public name: string;
+  public toxicateLevel: number;
+  public isCaptain: boolean;
+  public gender: string;
+  public isAlive: boolean;
+  
+  constructor (name: string = '') {
+    this.name = name;
+    this.toxicateLevel = 0;
+    this.isCaptain = false;
+    this.gender = 'nonbinary';
+    this.isAlive = true;
+  }
+  
+  public die(): void {
+    this.isAlive = false;
+    // console.log(this.isAlive);
   }
 
-  public getToxicLevel() {
-    console.log(`Me toxic level: ${this.toxicateLevel}`);
+  public dead() {
+    console.log(`The ${this.name} pirate is dead.`);
+  }
 
-    if (this.toxicateLevel === 0) {
+  public nominateToCaptiain(): void {
+    this.isCaptain = true;
+    // console.log(`${this.isAlive ? `The captain of the ship is ${this.name}.` : this.dead()}`); ------ this way does not work
+
+    if (this.isAlive === true) {
+      console.log(`The captain of the ship is ${this.name}.`);
+    } else {
+      this.dead();
+    }
+  }
+
+
+  public getToxicLevel() {
+    if (this.toxicateLevel === 0 && this.isAlive === true) {
       console.log(`Am I sober? Can't be possible!`);
+    } else {
+      console.log(`${this.isAlive ? `Me toxic level: ${this.toxicateLevel}` : `The ${this.name} pirate is dead.`}`);
     }
   }
 
   public drinkSomeRum() {
+    if (this.isAlive === true) {
     this.toxicateLevel++;
+    } else {
+      console.log(`The ${this.name} pirate is dead.`);
+    }
   }
 
   public isDrunk(): boolean {
     // without "else {}" can work 
-    if (this.toxicateLevel >= 4) {
+    if (this.toxicateLevel >= 4 && this.isAlive === true) {
       return true;
-    } 
+    } else {
+      console.log(`The ${this.name} pirate is dead.`);
       return false;
+    }
   }
 
   public isDrunk2(): boolean {
@@ -50,28 +86,25 @@ class Pirate {
   }
 
   public howItsGoingMate() {
-    if (this.toxicateLevel >= 4) {
+    if (this.toxicateLevel >= 4 && this.isAlive === true) {
       console.log('Pour me anudder!');
     } else {
       console.log(`Arghh, I'ma Pirate. How d'ya d'ink its goin?`);
     }
+
+    if (this.isAlive === false) {
+      console.log(`The ${this.name} pirate is dead.`);
+    }
   }
 
   public getSleep() {
-   this.toxicateLevel = 0;
+     if (this.isAlive === false) {
+     console.log(`The ${this.name} pirate is dead.`);
+    } else {
+      this.toxicateLevel = 0;
+    }
   }
 }
+
 export { Pirate };
-
-let DavyJones = new Pirate();
-DavyJones.drinkSomeRum();
-DavyJones.drinkSomeRum();
-DavyJones.howItsGoingMate();
-
-DavyJones.drinkSomeRum();
-DavyJones.drinkSomeRum();
-DavyJones.howItsGoingMate();
-
-DavyJones.getSleep();
-DavyJones.getToxicLevel();
 
