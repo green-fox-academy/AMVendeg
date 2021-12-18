@@ -2,8 +2,6 @@
 // We create anything else class into it, ex.: flower, tree, grass
 
 abstract class Plant {
-  [x: string]: any;
-
   color: string;
   waterLevel: number;
   absorptionLevel: number;
@@ -16,12 +14,9 @@ abstract class Plant {
     this.waterLevel = 0;
   }
 
-  // '' : '' ----> if else shorter
+  // '' : '' ----> if else shorter - ternary operator
   showStatus(): void {
-    console.log(
-      `The ${this.color} 
-      ${this.constructor.name} 
-      ${this.isThirsty() ? 'needs water' : 'do not need water'}`);
+    console.log(`The ${this.color} ${this.constructor.name} ${this.isThirsty() ? 'needs water' : 'do not need water'}`);
   }
 
   watering(waterAmount: number): void {
