@@ -44,7 +44,8 @@ class Pirate {
 
   public nominateToCaptiain(): void {
     this.isCaptain = true;
-    // console.log(`${this.isAlive ? `The captain of the ship is ${this.name}.` : this.dead()}`); ------ this way does not work
+    // console.log(`${this.isAlive ? `The captain of the ship is ${this.name}.` : this.dead()}`); 
+    // ------ this way does not work, actually work but I got undefined too in the next line
 
     if (this.isAlive === true) {
       console.log(`The captain of the ship is ${this.name}.`);
@@ -52,7 +53,6 @@ class Pirate {
       this.dead();
     }
   }
-
 
   public getToxicLevel() {
     if (this.toxicateLevel === 0 && this.isAlive === true) {
