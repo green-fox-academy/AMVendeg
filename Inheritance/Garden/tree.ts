@@ -7,7 +7,7 @@ class Tree extends Plants {
     }
 
     needWater() {
-        if (this.waterAmunt < 10) {
+        if (this.waterAmount < 10) {
             console.log(`The ${this.color} Tree need water`);
         } else {
             console.log(`The ${this.color} Tree doesn't need water`);
@@ -16,8 +16,8 @@ class Tree extends Plants {
 
     getWater(waterAmount:number): void {
         let waterAbsorb = waterAmount * 0.4;
-        if (this.waterAmunt < 10) {
-            this.waterAmunt += waterAbsorb;
+        if (this.waterAmount < 10) {
+            this.waterAmount += waterAbsorb;
         }
     }
 
