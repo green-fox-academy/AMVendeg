@@ -8,9 +8,9 @@ class Flower extends Plants {
 
     needWater() {
         if (this.waterAmunt < 5) {
-            console.log(`The flower neeeds more water`);
+            console.log(`The ${this.color} flower need water`);
         } else {
-            console.log(`The flower doesn't need any water now.`);
+            console.log(`The ${this.color} Tree doesn't need water`);
         }
     }
 
@@ -20,8 +20,8 @@ class Flower extends Plants {
             this.waterAmunt += waterAbsorb;
         }
     }
-
 }
+
 export { Flower };
 
 
