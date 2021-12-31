@@ -1,7 +1,5 @@
 /* 
-The place for the Pirates
-
-Create a Ship class.
+The place for the Pirates.Create a Ship class.
 The Ship stores Pirateinstances in a list as the crew and has one captain who is also a Pirate.
 When a ship is created it doesn't have a crew or a captain.
 The ship can be filled with pirates and a captain via fillShip() method.
@@ -19,41 +17,23 @@ The winning captain and crew has a party: everyone drinks a random number of rum
 import { Pirate } from './pirate';
 
 class Ship extends Pirate {
+  shipName: string;
+  listOfPirates: string [] = [];
 
-  public listOfPirates: Pirate [];
-  public captain: string;
-  sizeOfCrew: number;
-  isAlive: boolean;
-
-  constructor () {
+  constructor (shipName: string) {
     super();
+    this.shipName = shipName;
     this.listOfPirates = [];
-    this.captain = this.name;
-    this.sizeOfCrew = 0;
-    this.isAlive = true;
   }
 
-  public fillShip(newPirate: Pirate): void {
-      //if (this.listOfPirates.length <= this.sizeOfCrew) {
-        this.listOfPirates.push(newPirate);
-      //} 
-    }
-
-  public getShip(): Pirate [] {
-    return this.listOfPirates;
+  addPirate(pirate: Pirate) {
+    this.listOfPirates.push(pirate.name);
   }
 
-  // rum consumed by the captain and its state (dead or alive)
-  public getCaptainState(): void {
-    console.log(`Hi, I'm ${this.name}, the Captain of this ship.`);
-    console.log(`Me toxic level: ${this.toxicateLevel}`);
+  shipInfo():void {
+    // this give info about the ship: list of pirates and the name of the ship (and who is the captain?)
+    console.log(`The ship name is ${this.shipName}, crew size: ${this.listOfPirates.length}`);
   }
- 
 }
 
-let DavyJonesCaptain = new Pirate();
-let firstPirate = new Pirate();
-let myShip = new Ship();
-myShip.fillShip(DavyJonesCaptain);
-myShip.fillShip(firstPirate);
-myShip.getShip();
+export { Ship };
