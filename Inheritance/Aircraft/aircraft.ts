@@ -3,8 +3,7 @@
 // Both aircrafts should keep track of their ammunition
 // All aircrafts should be created with an empty ammo storage
 
-
-class Aircraft {
+abstract class Aircraft {
    public typeOfAircraft: string;
    public ammunition: number;
    public maxAmmo: number;
@@ -41,11 +40,33 @@ class Aircraft {
     this.ammunition += this.ammoNeed();
     let remainingAmmo = incomingAmmo - this.ammunition;
     console.log(`Remaining ammo is: ${remainingAmmo}`);
-
    }
 
    getAmmunition(): number {
        return this.ammunition;
+   }
+
+   // getType(): It should return the type of the aircraft as a string
+   getType(): string {
+       return this.typeOfAircraft;
+   }
+
+   // getStatus(): It should return a string like: Type F35, Ammo: 10, Base Damage: 50, All Damage: 500
+
+   getAllDamage(): number {
+       return this.baseDamage * this.ammunition;
+   }
+
+   getStatus(): void {
+       console.log(`Type ${this.typeOfAircraft}, Ammo: ${this.getAmmunition()}, Base Damage: ${this.baseDamage}, All Damage: ${this.getAllDamage()}`);
+   }
+
+   // It should return if the aircraft is priority in the ammo fill queue. It's true for F35 and false for F16
+   isPriority(): boolean {
+       if (this.ammunition === 0 && this.typeOfAircraft === 'F35') {
+           return true;
+       } else 
+       return false;
    }
 }
 
