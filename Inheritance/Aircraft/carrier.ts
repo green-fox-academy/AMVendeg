@@ -17,6 +17,38 @@ class Carrier extends Aircraft {
         this.storeOfAmmo = storeOfAmmo;
         this.healthPoint = healthPoint;
     }
+
+// It should take a new aircraft and add it to its storage
+add(aircraft: Aircraft): void {
+    this.aircraftStore.push(aircraft);
+}
+
+
+fill(ammo: number): void {
+
+    //subtract the taken ammo from the ammo storage
+    // It should throw an exception if there is no ammo when this method is called
+
+    try {
+    this.storeOfAmmo - ammo;
+       
+    } catch (error) {
+        console.log('There is not enough ammo to fill');
+    }
+
+    // It should fill all the aircrafts with ammo 
+    for (let aircraft of this.aircraftStore) {
+        aircraft.refillAmmo(ammo);     
+    }
+
+    // If there is not enough ammo it should start to fill the aircrafts that are priority first
+    for (let aircraft of this.aircraftStore) {
+        if (ammo < this.getAmmunition() && aircraft.isPriority()) {
+            aircraft.refillAmmo(ammo);
+        }
+    }
+}
+
 }
 
 export { Carrier };
