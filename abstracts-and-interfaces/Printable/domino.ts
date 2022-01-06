@@ -21,3 +21,6 @@ class Domino implements PrintableInterface {
 }
 
 export { Domino };
+
+let myDomino = new Domino(3,2);
+myDomino.printAllFields();
