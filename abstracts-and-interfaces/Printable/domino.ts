@@ -15,9 +15,8 @@ class Domino implements PrintableInterface {
   }
 
   printAllFields(): void {
-      
+      console.log(`Domino A side: ${this.upperSide}, B side: ${this.downSide}`);
   }
-
 
 }
 
