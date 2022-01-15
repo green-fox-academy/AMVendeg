@@ -28,47 +28,50 @@ class AnimalShelter {
     adoptersNameList: string [];
 
     constructor () {
-        this.budget = 50;
-        this.animals = [];
-        this.adoptersNameList = [];
+      this.budget = 50;
+      this.animals = [];
+      this.adoptersNameList = [];
     }
 
     // // It must have a method named rescue this method takes an Animal as parameter
     // and add the animal to the shelter's list and return the size of the list
     rescue(animal: Animal): number {
-        this.animals.push(animal);
-        return this.animals.length; 
+      this.animals.push(animal);
+      return this.animals.length; 
     }
 
     // It must have a method named heal this method heals the first not healthy Animal
     // if it is possible by budget, returns the amount of healed animals(0 or 1)
     heal(): number {
-        const firstIllAnimal = this.animals.find((animal: Animal) => !animal.isHealthy);
-        if (this.budget >= firstIllAnimal.healCost) {
-            firstIllAnimal.heal();
-            return 1;
-        } 
-         return 0;
+      const firstIllAnimal = this.animals.find((animal: Animal) => !animal.isHealthy);
+      if (!firstIllAnimal) {
+        return 0;
+      }
+      if (firstIllAnimal.healCost && this.budget >= firstIllAnimal.healCost) {
+        firstIllAnimal.heal();
+        return 1;
+      } 
+      return 0;
     }
 
     // It must have a method named addAdopter this method takes a name as a parameter
     // and saves it as a potential new owner
     addAdopter(name: string): void {
-        this.adoptersNameList.push(name);
+      this.adoptersNameList.push(name);
     }
 
     // It must have a method named findNewOwner
     // this method pairs a random name with a random adoptable Animal if it is possible
     // and removes both of them from the lists
     findNewOwner(): void {
-
+      
     }
 
     // It must have a method named earnDonation this method takes an amount as parameter
     // and increases the shelter's budget by the parameter's value and returns the current budget
     earnDonation(amount: number): number {
-        this.budget += amount;
-        return this.budget;
+      this.budget += amount;
+      return this.budget;
     }
 
     // It must have a method named toString that represents the shelter
@@ -77,11 +80,15 @@ class AnimalShelter {
     // There are <animals.count> animal(s) and <potentionalAdopters.count> potential adopter(s)
     // <name> is not healthy (healing would cost: <heal cost> €) and not adoptable
     // <name> is healthy and adoptable
-    toString(): void {
-
+    toString(): string {
+      let animalText = '';
+      /* for (let i: number = 0; i < this.animals.length; i++) {
+         animalText += this.animals[i].toString() + '\n';
+       // console.log(this.animals[i].toString());
+      } */
+      this.animals.forEach((animal: Animal) => animalText += animal.toString() + '\n');
+      return `Budget: ${this.budget}€ There are ${this.animals.length} animal(s) \nand ${this.adoptersNameList.length} potentioal adopter(s) \n${animalText}`;
     } 
-
-
 }
 
 export { AnimalShelter };
