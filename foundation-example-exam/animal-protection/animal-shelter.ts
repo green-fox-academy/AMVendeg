@@ -60,11 +60,22 @@ class AnimalShelter {
       this.adoptersNameList.push(name);
     }
 
+    hasAdoptable(): boolean {
+      return this.animals.some((animal: Animal) => animal.isAdoptable());
+    }
+    
+
     // It must have a method named findNewOwner
     // this method pairs a random name with a random adoptable Animal if it is possible
     // and removes both of them from the lists
     findNewOwner(): void {
-      
+      if (!this.animals.length || !this.adoptersNameList.length || !this.hasAdoptable()) {
+        return;
+      }
+      const randomAnimalIndex: number = Math.floor(Math.random() * (this.animals.length));
+      const randomAdopterIndex: number = Math.floor(Math.random() * (this.adoptersNameList.length));
+      this.animals.splice(randomAnimalIndex, 1);
+      this.adoptersNameList.splice(randomAdopterIndex, 1);
     }
 
     // It must have a method named earnDonation this method takes an amount as parameter
