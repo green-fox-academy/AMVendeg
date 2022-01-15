@@ -14,6 +14,7 @@ abstract class Animal {
   isHealthy: boolean;
   healCost: number | undefined;
   animalName: string;
+  static animalName: any;
 
   constructor (animalName: string) {
     this.ownerName = undefined;
@@ -39,11 +40,11 @@ abstract class Animal {
       }
   }
 
-  toString(): void {
-    if (this.isHealthy === false) {
-      console.log(`${this.animalName} is not healthy (${this.healCost} € ) and not adoptable.`);
+  toString(): string {
+    if (!this.isHealthy) {
+      return `${this.animalName} is not healthy (${this.healCost} € ) and not adoptable.`;
     } else {
-      console.log(`${this.animalName} is healthy and not adoptable.`);
+      return `${this.animalName} is healthy and adoptable.`;
       }
   }
 }
