@@ -9,7 +9,7 @@ class DowCode implements Reservation {
   days: string [] = [];
   bookedDay: string;
   codeNumber: string [] = [];
-  code
+  newCode: string [] = [];
 
   constructor() {
     this.days = ['MON', 'THU', 'WED', 'THUS', 'FRI', 'SAT', 'SUN'];
@@ -24,16 +24,21 @@ class DowCode implements Reservation {
   } 
 
   
-  getCodeBooking(): string {
-      
 
-    return 
+  getCodeBooking(): string {
+    let abcNums: string = 'ABCDEFGHIJKLMNOPQRSTUVWXY0123456789';
+    let result: string = '';
+    let codeLength: number = 8;
+    for (let i: number = 0; i <= codeLength; i++) {
+      result += abcNums.charAt(Math.floor(Math.random() * abcNums.length));
+    }
+    return result;
   }
 
 
 
-  printStatus(): void {
-    console.log(`random day: ${this.getDowBooking()}`);
+  printStatus(): string {
+    return `Random day: ${this.getDowBooking()}\nReservation code: ${this.getCodeBooking()}`;
   }
 }
 
