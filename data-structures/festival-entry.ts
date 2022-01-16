@@ -21,34 +21,28 @@ let queue: FestivalGoer[] = [
   { name: 'Joerg', alcohol: 20, guns: 0 }
 ];
 
-// Queue of festivalgoers at entry
-// no. of alcohol units
-// no. of guns
-
 // Create a securityCheck function that takes the queue as a parameter 
 //and returns a list of festivalgoers who can enter the festival
-
 // If guns are found, remove them and put them on the watchlist (only the names)
 // If alcohol is found confiscate it (set it to zero and add it to securityAlcholLoot) 
 // and let them enter the festival
-
 // not ready yet
 
-let allowedTeEnterList: string [];
-function securityCheck(queue: FestivalGoer[]): void {
+function securityCheck(queue: FestivalGoer[]): string[] {
   for (let i: number = 0; i < queue.length; i++) {
     if (queue[i].guns > 0) {
       watchlist.push(queue[i].name);
     } else if (queue[i].alcohol > 0) {
-      let tobbletalcohol: number = 0;
-      securityAlcoholLoot += tobbletalcohol;
+      securityAlcoholLoot += queue[i].alcohol;
       queue[i].alcohol = 0;
     } else {
       goList.push(queue[i].name);
     }
   } 
+  return goList;
 }
 
-console.log(queue);
-console.log(watchlist);
+// console.log(queue);
+// console.log(watchlist);
 console.log(securityCheck(queue));
+
