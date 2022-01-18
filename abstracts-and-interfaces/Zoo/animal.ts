@@ -10,16 +10,13 @@ abstract class Animal {
   color: string;
   numberOfLegs: number;
   isAlive: boolean;
-  species: string;
 
-  constructor(name: string, age: number, color: string) {
+  constructor(name: string) {
     this.name = name;
-    this.age = age;
-    this.color = color;
+    this.age = 0;
+    this.color = '';
     this.numberOfLegs = 0;
     this.isAlive = true;
-    this.species = '';
-
   }
 
   getName(): string {
