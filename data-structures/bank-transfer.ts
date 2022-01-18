@@ -1,10 +1,6 @@
 'use strict';
 
-const accounts: any[] = [
-  { clientName: 'Igor', accountNumber: 11234543, balance: 203004099.2 },
-  { clientName: 'Vladimir', accountNumber: 43546731, balance: 5204100071.23 },
-  { clientName: 'Sergei', accountNumber: 23456311, balance: 1353600.0 }
-];
+import { transform } from "@babel/core";
 
 // Create function that returns the name and balance of cash on an account in a list
 // getNameAndBalance(11234543);
@@ -16,16 +12,26 @@ const accounts: any[] = [
 //  - from accountNumber
 //  - to accountNumber
 //  - amount of cash to transfer
+
+
+
 //
 // Log "404 - account not found" if any of the account numbers don't exist to the console.
 
 // transferAmount(accounts, 43546731, 23456311, 500.0);
 //After printing the "accounts" it should look like:
 // const accounts = [
-//	{ clientName: 'Igor', accountNumber: 11234543, balance: 203004099.2 },
-//	{ clientName: 'Vladimir', accountNumber: 43546731, balance: 5204099571.23 },
-//	{ clientName: 'Sergei', accountNumber: 23456311, balance: 1354100.0 }
-//]
+  //	{ clientName: 'Igor', accountNumber: 11234543, balance: 203004099.2 },
+  //	{ clientName: 'Vladimir', accountNumber: 43546731, balance: 5204099571.23 },
+  //	{ clientName: 'Sergei', accountNumber: 23456311, balance: 1354100.0 }
+  //]
+
+
+  const accounts: any[] = [
+    { clientName: 'Igor', accountNumber: 11234543, balance: 2000 },
+    { clientName: 'Vladimir', accountNumber: 43546731, balance: 3000 },
+    { clientName: 'Sergei', accountNumber: 23456311, balance: 0 }
+  ];
 
 let statusArr: any[] = [];
 function getNameAndBalance(name: string) {
@@ -37,3 +43,28 @@ function getNameAndBalance(name: string) {
   }
 }
 console.log(getNameAndBalance('Igor'));
+
+
+function transferAmount(
+  accounts: any[], 
+  fromAccountNumber: number, 
+  toAccountNumber: number,
+  amount: number ) {
+
+  for (let i: number = 0; i < accounts.length; i++) {
+    if (fromAccountNumber === accounts[i].accountNumber) {
+
+      for (let j: number = 0; j < accounts.length; j++) {
+
+        if (toAccountNumber === accounts[j].accountNumber) {
+          accounts[j].balance += amount;
+          accounts[i].balance -= amount;
+        }
+      }
+      
+    }
+  }
+  return accounts;
+}
+
+console.log(transferAmount(accounts, 43546731, 23456311, 1000));
