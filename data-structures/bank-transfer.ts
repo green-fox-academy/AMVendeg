@@ -59,12 +59,20 @@ function transferAmount(
         if (toAccountNumber === accounts[j].accountNumber) {
           accounts[j].balance += amount;
           accounts[i].balance -= amount;
+        } else {
+          return `404 - account not found`;
         }
       }
       
+    } else {
+      return `404 - account not found`;
     }
   }
   return accounts;
 }
 
+// transfer amount OK:
 console.log(transferAmount(accounts, 43546731, 23456311, 1000));
+
+// transfer amount - accountnumber is wrong
+console.log(transferAmount(accounts, 43546730, 23456311, 1000));
