@@ -10,9 +10,15 @@ class Dinosaurs extends Animal {
   height: string = 'you can not imagine';
   isLoudy: boolean = true;
 
+breed(): string {
+  return `eggs or we don't know exactly`;
+}
+
   killByMeteor() {
     this.isAlive = false;
   }
+
+
 }
 
 export { Dinosaurs };
