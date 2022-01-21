@@ -9,22 +9,22 @@ import * as fs from 'fs';
 
 function decryptDoubled(filename: string) {
 
-    try {
-        let encryptFile = fs.readFileSync(filename, 'utf-8').split('\n');
+  try {
+    let encryptFile = fs.readFileSync(filename, 'utf-8').split('\n');
 
-        for (let i: number = 0; i < encryptFile.length; i++) {
-            for (let k: number = 0; k < encryptFile[i].length; k = k + 2) {
-                fs.appendFileSync("output.txt", encryptFile[i][k]);
-                
-            }
+    for (let i: number = 0; i < encryptFile.length; i++) {
+      for (let k: number = 0; k < encryptFile[i].length; k = k + 2) {
+        fs.appendFileSync("output3.txt", encryptFile[i][k]);     
         }
-        // fel akartam darabolni a szöveget sortöréssel a mondatvégi pontnál - de ez még nem működik
-        fs.readFileSync('output.txt', 'utf-8').split('\n');
+      }
+      let myfile: string = fs.readFileSync('output3.txt', 'utf-8').split('.').join('\n');
+      fs.writeFileSync('output3.txt', myfile);
+    // console.log(myfile);
 
-    } catch (error) {
-        console.log('File not found');
-        console.log(error);
-    }
+  } catch (error) {
+    console.log('File not found');
+    console.log(error);
+  }
 }
 
 decryptDoubled('duplicated-chars.txt');
