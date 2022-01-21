@@ -23,21 +23,18 @@ function readParse (filename: string) {
     // console.log(myFile.length); test make array: OK
 
     for (let i = 0; i < unfriendlyWords.length; i++) {
-        let arrLength: number  = myFile.length;
-        for (let j = 0; j < arrLength; j++) {
-            if (unfriendlyWords[i] == myFile[j]) {
-              myFile = myFile.slice(0, j).concat(myFile.slice(j + 1, arrLength));
-            }
+      for (let j = 0; j < myFile.length; j++) {
+        if (unfriendlyWords[i] === myFile[j]) {
+          myFile = myFile.slice(0, j).concat(myFile.slice(j + 1, myFile.length));
         }
+      }
     }
-    
-    return tempArr.length - myFile.length;
+      return tempArr.length - myFile.length;
 
     } catch (error) {
         // console.log(error);
         console.log('Houston, we have a problem.');
       }
 }
-
 console.log(readParse('content.txt'));
 
