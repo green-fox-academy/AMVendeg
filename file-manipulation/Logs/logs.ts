@@ -5,24 +5,47 @@
 
 import * as fs from 'fs';
 
-function ipAdresses(filename: string): string[] {
-
+function ipAddresses(filename: string): void {
+  
+  let ipAddress: string = '';
+  let listOfIPs: string[] = [];
+  
   try {
     let logFileArr: string [] = fs.readFileSync(filename, 'utf-8').split('\n');
-    let ipAdress: string = '';
-    let listOfIPs: string[] = [];
-
     for (let i: number = 0; i < logFileArr.length; i++) {
-      ipAdress = logFileArr[i].toString();
-      ipAdress = ipAdress.slice(27,38);
+      ipAddress = logFileArr[i].toString();
+      ipAddress = ipAddress.slice(27,38);
       // console.log(ipAddress);
-      listOfIPs.push(ipAdress);
+      listOfIPs.push(ipAddress);
     }
-    return listOfIPs;
+    console.log(listOfIPs);
   }
   catch (error) {
     console.log(error);
   }
 }
 
-ipAdresses('log.txt');
+ipAddresses('log.txt');
+
+
+function getPostList(filename: string): void {
+  
+  let getPost: string = '';
+  let listOfgetPost: string[] = [];
+  
+  try {
+    let logFileArr: string [] = fs.readFileSync(filename, 'utf-8').split('\n');
+    for (let i: number = 0; i < logFileArr.length; i++) {
+      getPost = logFileArr[i].toString();
+      getPost = getPost.slice(40,44);
+      // console.log(ipAddress);
+      listOfgetPost.push(getPost);
+    }
+    console.log(listOfgetPost);
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
+
+getPostList('log.txt');
