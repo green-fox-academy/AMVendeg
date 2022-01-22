@@ -22,3 +22,11 @@ for (let i: number = 0; i <= shoppingList.length; i++) {
     }
 }
 
+// is there product on the given list
+function checkList(list: string[], product: string): boolean {
+    return list.includes(product);
+}
+console.log(checkList(shoppingList, 'milk'));
+console.log(checkList(shoppingList, 'banana'));
+
+
