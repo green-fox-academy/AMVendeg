@@ -7,12 +7,16 @@
 
 let numbers: number[] = [3, 4, 5, 6];
 
+// first solution
 numbers.reverse();
 console.log(numbers);
 
 
-for (let i = 0; i < 1; i++) {
-    let revNumbers: number[] = numbers.reverse();
-    console.log(revNumbers);
-
+// second solution
+let tempNumbers: number [] = [];
+for (let i: number = numbers.length; i > 0; i--) {
+    tempNumbers.push(numbers[i]);
 }
+tempNumbers = numbers;
+
+console.log(numbers);
