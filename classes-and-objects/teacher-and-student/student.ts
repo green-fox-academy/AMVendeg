@@ -1,15 +1,12 @@
 import { Teacher } from './teacher';
 
-class Student {
+export class Student {
 
-  public learn(): void {
-    return console.log('The student is actually learning.');
+  public learn(): string {
+    return `The student is actually learning.`;
   }
 
-  public question(teacher: Teacher) :void {
-    teacher.giveAnswer();
+  public question(teacher: Teacher): string {
+    return teacher.giveAnswer();
   }
-
 }
-
-export { Student };

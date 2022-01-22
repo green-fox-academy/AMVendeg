@@ -13,8 +13,10 @@ Call the student's question() method and the teacher's teach() method
 import { Student } from './student';
 import { Teacher } from './teacher';
 
-let student = new Student();
-let teacher = new Teacher();
+let myStudent = new Student();
+let myTeacher = new Teacher();
 
-student.question(teacher);
-teacher.teachStudent(student);
+console.log(myStudent.learn());
+console.log(myStudent.question(myTeacher));
+console.log(myTeacher.teachStudent(myStudent));
+console.log(myTeacher.giveAnswer());
