@@ -8,39 +8,36 @@ Every animal can drink() which decreases its thirst by one
 Every animal can play() which increases both its hunger and thirst by one
 */
 
-class Animal {
-    hungerValue: number;
-    thirstValue: number;
+export class Animal {
+    public hungerValue: number;
+    public thirstValue: number;
   
-    constructor (hungerValue: number = 50, thirstValue: number = 50) {
-      this.hungerValue = hungerValue;
-      this.thirstValue = thirstValue;
+    constructor (hungerValueParam: number = 50, thirstValueParam: number = 50) {
+      this.hungerValue = hungerValueParam;
+      this.thirstValue = thirstValueParam;
     }
   
-    eat() {
+    eat(): void {
       this.hungerValue--;
     }
   
-    drink() {
+    drink(): void {
       this.thirstValue--;
     }
   
-    play() {
+    play(): void {
       this.hungerValue++;
       this.thirstValue++;
     }
 
-    getHunger() {
+    getHunger(): number {
       return this.hungerValue;
     }
 
-    getThirst() {
-      return this.getThirst;
+    getThirst(): number {
+      return this.thirstValue;
     }
-
   } 
-
-  export { Animal };
   
   // When creating a new animal instance these values must be set to the default 50 value
   let myAnimal = new Animal();
