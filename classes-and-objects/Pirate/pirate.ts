@@ -38,15 +38,12 @@ class Pirate {
     // console.log(this.isAlive);
   }
 
-  public dead() {
+  public dead(): void  {
     console.log(`The ${this.name} pirate is dead.`);
   }
 
   public nominateToCaptiain(): void {
     this.isCaptain = true;
-    // console.log(`${this.isAlive ? `The captain of the ship is ${this.name}.` : this.dead()}`); 
-    // ------ this way does not work, actually work but I got undefined too in the next line
-
     if (this.isAlive === true) {
       console.log(`The captain of the ship is ${this.name}.`);
     } else {
@@ -54,7 +51,7 @@ class Pirate {
     }
   }
 
-  public getToxicLevel() {
+  public getToxicLevel(): void {
     if (this.toxicateLevel === 0 && this.isAlive === true) {
       console.log(`Am I sober? Can't be possible!`);
     } else {
@@ -62,20 +59,20 @@ class Pirate {
     }
   }
 
-  public drinkSomeRum() {
+  public drinkSomeRum(): void {
     if (this.isAlive === true) {
     this.toxicateLevel++;
     } else {
-      console.log(`The ${this.name} pirate is dead.`);
+      this.dead();
     }
   }
 
   public isDrunk(): boolean {
-    // without "else {}" can work 
+    // without "else {}" also works 
     if (this.toxicateLevel >= 4 && this.isAlive === true) {
       return true;
     } else {
-      console.log(`The ${this.name} pirate is dead.`);
+      this.dead();
       return false;
     }
   }
@@ -85,7 +82,7 @@ class Pirate {
     return this.toxicateLevel >= 4 ? true : false;
   }
 
-  public howItsGoingMate() {
+  public howItsGoingMate(): void {
     if (this.toxicateLevel >= 4 && this.isAlive === true) {
       console.log('Pour me anudder!');
     } else {
@@ -93,13 +90,13 @@ class Pirate {
     }
 
     if (this.isAlive === false) {
-      console.log(`The ${this.name} pirate is dead.`);
+      this.dead();
     }
   }
 
-  public getSleep() {
+  public getSleep(): void {
      if (this.isAlive === false) {
-     console.log(`The ${this.name} pirate is dead.`);
+     this.dead();
     } else {
       this.toxicateLevel = 0;
     }
@@ -107,4 +104,5 @@ class Pirate {
 }
 
 export { Pirate };
+
 
