@@ -3,6 +3,8 @@
 // Both aircrafts should keep track of their ammunition
 // All aircrafts should be created with an empty ammo storage
 
+import { urlToHttpOptions } from "url";
+
 // It should use all the ammo (set it to 0) and it should return the damage it causes
 // damage is calculated by multiplying the base damage by the ammunition
 
@@ -37,14 +39,27 @@ export abstract class Aircraft {
     return this.baseDamage * this.ammunition;
   }
 
+ 
   ammoNeed(): number {
-    return this.maxAmmo - this.ammunition;
+    let ammoNeedAmount = this.maxAmmo - this.ammunition;
+    return ammoNeedAmount;
   }
 
-  refillAmmo(incomingAmmo: number): void {
-    this.ammunition += this.ammoNeed();
-    let remainingAmmo = incomingAmmo - this.ammunition;
-    console.log(`Remaining ammo is: ${remainingAmmo}`);
+  refillAmmo(incomingAmmo: number): string {
+    let remainingAmmo: number = 0;
+
+    if (incomingAmmo > this.ammoNeed()) {
+      this.ammunition += this.maxAmmo;
+      remainingAmmo = incomingAmmo - this.maxAmmo;
+      return `Remaining ammo is: ${remainingAmmo}`;
+    }
+  
+    if (incomingAmmo <= this.ammoNeed()) {
+      this.ammunition += incomingAmmo;
+      this.ammoNeed();
+      return `Ammo need: ${this.ammoNeed()}`;
+    }
+    return `${this.ammunition}`;
   }
 
   getAmmunition(): number {
