@@ -11,6 +11,6 @@ function remainingTime(currentHour: number, currentMin: number, currentSec: numb
   const remainingMin: number = endMinutes-currentMin;
   const remainingSec: number = endSeconds - currentSec;
   console.log(`The remaining time of the day is: ${remainingHour}:${remainingMin}:${remainingSec}`);
-  console.log(`The remaining time (in seconds) of the day is: ${remainingHour*3600}:${remainingMin*60}:${remainingSec}`);
+  console.log(`The remaining time (in seconds) of the day is: ${remainingHour*(60*60)}:${remainingMin*60}:${remainingSec}`);
 }
 remainingTime(17,36,1);
