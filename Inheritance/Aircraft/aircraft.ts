@@ -16,6 +16,7 @@
 // getStatus(): It should return a string like: Type F35, Ammo: 10, Base Damage: 50, All Damage: 500
 // It should return if the aircraft is priority in the ammo fill queue. It's true for F35 and false for F16
 
+
 export abstract class Aircraft {
   public typeOfAircraft: string;
   public ammunition: number;
@@ -62,11 +63,7 @@ export abstract class Aircraft {
     return `Type ${this.typeOfAircraft}, Ammo: ${this.getAmmunition()}, Base Damage: ${this.baseDamage}, All Damage: ${this.getAllDamage()}`;
    }
 
-  // It should return if the aircraft is priority in the ammo fill queue. It's true for F35 and false for F16
   isPriority(): boolean {
-    if (this.ammunition === 0 && this.typeOfAircraft === 'F35') {
-      return true;
-    } else 
-    return false;
+    return this.ammunition === 0 && this.typeOfAircraft === 'F35';
   }
 }
