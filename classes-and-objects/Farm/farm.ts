@@ -12,7 +12,7 @@ import { Animal } from './animal';
 class Farm {
 
   public listOfAnimals: Animal[] = [];
-  public farmLimit: number = 0;
+  public farmLimit: number;
 
   constructor (farmLimit: number = 0) {
     this.listOfAnimals = [];
@@ -45,6 +45,7 @@ class Farm {
     for (let i: number = 0; i < this.listOfAnimals.length; i++) {
       if (this.listOfAnimals[i].getHunger() === minHunger) {
         this.listOfAnimals.splice(i, 1);
+        break;
       }
     }
     return this.listOfAnimals; 
