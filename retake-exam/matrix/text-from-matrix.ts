@@ -2,12 +2,14 @@ let inputMatrix: string[][] = [
   ["n", "x"],
   ["m", "o"]
 ];
+let emptyMatrix: string[][] = [[]];
 
 export function textFromMatrix(inputMatrix: string[][]): string {
 
   let output: string[] = [];
+  let error: string = '';
   if (inputMatrix.length === 0) {
-    console.log('The matrix is empty.');
+    return error = 'The matrix is empty';
 
   } else {
     for (let i: number = 0; i < inputMatrix.length; i++) {
@@ -32,3 +34,4 @@ export function textFromMatrix(inputMatrix: string[][]): string {
 }
 
 console.log(textFromMatrix(inputMatrix));
+console.log(textFromMatrix(emptyMatrix));
