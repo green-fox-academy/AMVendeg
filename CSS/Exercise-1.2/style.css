@@ -7,10 +7,10 @@
 .item {
   width: 20%;
   height: 200px;
-  align-self: flex-end;
 }
 
 .green {
+  width: 20%;
   background-color: green;
 }
 
@@ -20,5 +20,6 @@
 }
 
 .purple {
+  width: 20%;
   background-color: purple;
 }
