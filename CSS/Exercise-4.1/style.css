@@ -24,7 +24,7 @@ main {
   overflow: hidden; 
 }
 
-.nav {
+.header {
   width: 100%;
   height: 60px;
   background-color: purple;
@@ -62,20 +62,20 @@ main {
   flex-wrap: wrap;
 }
 
-.content .left {
+.content .left-sidebar {
   width: 28%;
   height: 400px;
   margin-right: 10px;
   background-color: lime;
 }
 
-.content .right {
+.content .right-main {
   width: 70%;
   height: 400px;
   background-color: yellow;
 }
 
-.centered {
+.footer {
   width: 100%;
   height: 30px;
   margin-top: 10px;
