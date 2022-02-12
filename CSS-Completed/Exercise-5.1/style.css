@@ -1,0 +1,79 @@
+/* 
+It should be centered on the page.
+It should have fixed width.
+When picking the semantically correct element, consider the roles of the boxes:
+Aqua (light blue): Header
+Orange: Left sidebar (not main content)
+Red: Main Content
+Black: Fixed content on the bottom right of the Main content
+Purple: Right sidebar (not main content)
+Blue: Footer
+
+It should be wall to wall with fluid width.
+The sidebars should have fixed with.
+
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  border: 1px solid navy;
+  overflow: hidden; 
+  position: relative;
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: cyan;
+  position: -webkit-sticky;
+}
+
+.content {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-wrap: space-between;
+}
+
+.content .left-sidebar {
+  width: 150px;
+  margin-right: 10px;
+  background-color: orange;
+}
+
+.content .main {
+  width: 100%;
+  margin-right: 10px;
+  background-color: red;
+  position: relative;
+}
+
+.content .right-sidebar {
+  width: 150px;
+  background-color: purple;
+}
+
+.footer {
+  width: 100%;
+  height: 80px;
+  background-color: navy;
+}
+
+.nav-to-top {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background-color: black;
+}
