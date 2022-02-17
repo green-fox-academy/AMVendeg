@@ -68,6 +68,21 @@ app.get('/greeter', (req, res) => {
 });
 
 
+// append A 
+app.get('/appenda/:appendable', (req, res) => {
+  let appendable = req.params.appendable;
+  let result = {};
+
+  if (!appendable) {
+    res.status(404);
+  }
+
+  res.status(200);
+  result = {appended: appendable + 'a'};
+  res.json(result);
+});
+
+
 
 
 
