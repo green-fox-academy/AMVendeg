@@ -1,3 +1,4 @@
+const { rejects } = require('assert');
 const express = require('express');
 const app = express();
 const PORT = 3000;
@@ -32,6 +33,44 @@ app.get('/doubling', (req, res) => {
 
   res.json(result);
 });
+
+
+// greeter endpoint 
+app.get('/greeter', (req, res) => {
+  const name = req.query.name;
+  const title = req.query.title;
+  let output = {};
+  let error = '';
+  
+
+  if (!name || !title) {
+    if (!name && !title) {
+      res.status(400);
+      error = 'Please provide a name and a title!';
+
+    } else if (!title) {
+      res.status(400);
+      error = 'Please provide a title!';
+
+    } else if (!name) {
+      res.status(400);
+      error = 'Please provide a name!';
+    }
+
+    output = {error};
+
+  } else {
+    res.status(200);
+    output = { welcome_message: `Oh, hi there ${name}, my dear ${title}!`};
+  }
+
+  res.json(output);
+});
+
+
+
+
+
 
 
 app.listen(PORT, () => {
