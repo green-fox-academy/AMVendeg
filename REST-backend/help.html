@@ -1,0 +1,64 @@
+
+<!--
+
+API - application programming interface
+pl. étteremben a pincér / étlap az API, amin keresztül kommunikálunk
+egymástól független entitás közötti kommunikáció szolgáló csatorna 
+két fél számára értelmezhető közös nyelv/protokoll
+a kérdezőnek nincs köze ahhoz h a válasz hogyan jön létre
+pl. arról h a konyhában mit történik nekem nincs fogalmam
+Csak kérdezek, requestet küldök, amire kapok vmilyen választ response
+
+WEB API - hálózaton kommunikál, neten keresztül elérhető
+
+Rapid api - weboldalon sok api-t lehet találni, általában kérésenként lkell fizetni érte
+Pl. githubnak is van sok API-ja, pl meghivom a users api-t és megkapom az adott user adatát
+
+
+Web service - Minden web service az egy API, de nem minden API web service
+weben kommunikál, akár egy function is lehet service
+Annak a módja, ahogy kommunikál a hálózaton több szgép
+Api, de nem web service: Node fs modul (readfilesync)
+
+Restful web application: 
+Representationail state transfer: 5 + 1 kritériuma van:
+Architecturális szabvány, segit átlátni az alkalmazást
+
+- Uniform interface: http metódusokon keresztül kommunikál egymással a két fél, a kérés tipusa nem az URL_ben utazik, hanem a header method-ban (GET, POST, PUT cuccok)
+http:// greenfox.com/get-mentors -> http://greenfox.com/mentors
+- stateless: a szerver nem tárolja a kliens állapotát, a request tartalmazza 
+- a stateless pl. a function is ilyen stateless, hogy csak legyen benne ami a működéséhez kell, és nem kell látnunk h mi van benne, csak meghívjuk és használjuk
+- a kliens és a szerver külön van választva teljesen (client server architecture)
+vagyis a beékező requesteket szét tudom osztani, hogy több backenden fusson igy eloszlik a terhelés
+- cacheability: a válasz cache-elhető, pl. nem dob ki a fb sosem, mert tokeneket használnak
+- Layerd: kliens és a szerver közé beépülhet egy új layer, pl egy proxy, a proxy hivja meg a backend-t nem én mint kliens, pl a vpn ilyesmi
+
+most common HTTP methods: 
+GET - Read, POST-Create, PUT-update, DELETE
+
+
+Response type-ok
+- JSON, text, file, html, xml, csv
+JSON a leggyakoribb - objecteket jól kell vágni
+
+URL részei sorban:
+- protocol
+- domain (subdomain)
+- port
+- route (/utáni rész), path
+- query string (?)
+- Fragment: (#) anchor, vagy youtube-nál meg lehet adni honnan induljon el, az ide a végére kerül
+
+
+Mi a közös a http reaquest/response-ban:
+- header
+- body
+- unique IP cim
+- ugyanazt a kapcsolatot használják
+
+Mi a különbség: 
+Request-ben van: URL, Method-ok, authorization-ok (ezek a token-ek, jwt.io) - API kulcsok
+Response-ban: státusz van, de a requestben nincs 
+
+POSTMAN: API tesztelésre lehet használni, helyettesíteni lehet a frontendet
+
