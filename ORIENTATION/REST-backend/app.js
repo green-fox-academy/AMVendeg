@@ -94,17 +94,24 @@ app.post('/dountil/:operation', (req, res) => {
   const input = req.body.input;
   const operation = req.params.operation;
   let output = {};
-  let result = 0;
+  let resultSum = 0;
+  let resultFactor = 1;
   
   if (operation === 'sum') {
     for (let i = 0; i <= input; i++) {
-      result += i;
+      resultSum += i;
     }
+    output = {'result': resultSum};
+    res.status(200).json(output).send();
   }
-  
-  output = {'result': result};
-  
-  return res.status(200).json(output).send('OKAY');
+
+  if (operation === 'factor') {
+    for (let i = 1; i <= input; i++) {
+      resultFactor *= i;
+    }
+    output = {'result': resultFactor};
+    return res.status(200).json(output).send();
+  }
 });
 
 
