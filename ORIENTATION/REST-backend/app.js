@@ -20,73 +20,73 @@ app.get('/index.html', (req, res) => {
 });
 
 
-// // adding doubling endpoint 
-// app.get('/doubling', (req, res) => {
-//   let received = parseInt(req.query.input);
-//   let result = {};
+// adding doubling endpoint 
+app.get('/doubling', (req, res) => {
+  let received = parseInt(req.query.input);
+  let result = {};
 
-//   if (received) {
-//     result = {
-//       "received": received,
-//       "result": received * 2
-//     };
-//   } else {
-//     result = {
-//       error: 'Please provide an input!',
-//     };
-//   }
+  if (received) {
+    result = {
+      "received": received,
+      "result": received * 2
+    };
+  } else {
+    result = {
+      error: 'Please provide an input!',
+    };
+  }
 
-//   res.json(result);
-// });
+  res.json(result);
+});
 
 
 
-// // greeter endpoint 
-// app.get('/greeter', (req, res) => {
-//   const name = req.query.name;
-//   const title = req.query.title;
-//   let output = {};
-//   let error = '';
+// greeter endpoint 
+app.get('/greeter', (req, res) => {
+  const name = req.query.name;
+  const title = req.query.title;
+  let output = {};
+  let error = '';
   
 
-//   if (!name || !title) {
-//     if (!name && !title) {
-//       res.status(400);
-//       error = 'Please provide a name and a title!';
+  if (!name || !title) {
+    if (!name && !title) {
+      res.status(400);
+      error = 'Please provide a name and a title!';
 
-//     } else if (!title) {
-//       res.status(400);
-//       error = 'Please provide a title!';
+    } else if (!title) {
+      res.status(400);
+      error = 'Please provide a title!';
 
-//     } else if (!name) {
-//       res.status(400);
-//       error = 'Please provide a name!';
-//     }
+    } else if (!name) {
+      res.status(400);
+      error = 'Please provide a name!';
+    }
 
-//     output = {error};
+    output = {error};
 
-//   } else {
-//     res.status(200);
-//     output = { welcome_message: `Oh, hi there ${name}, my dear ${title}!`};
-//   }
+  } else {
+    res.status(200);
+    output = { welcome_message: `Oh, hi there ${name}, my dear ${title}!`};
+  }
 
-//   res.json(output);
-// });
+  res.json(output);
+});
 
 
 // // append A 
-// app.get('/appenda/:appendable', (req, res) => {
-//   let appendable = req.params.appendable;
-//   let result = {};
+app.get('/appenda/:appendable', (req, res) => {
+  let appendable = req.params.appendable;
+  let result = {};
 
-//   if (!appendable) {
-//     res.status(404);
-//   }
+  if (!appendable) {
+    res.status(404);
+  }
 
-//   res.status(200);
-//   result = {appended: appendable + 'a'};
-//   res.json(result);
-// });
+  res.status(200);
+  result = {appended: appendable + 'a'};
+  res.json(result);
+});
 
 
 // DO until: works fine w/ postman
