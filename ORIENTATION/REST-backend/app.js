@@ -118,10 +118,7 @@ app.post('/dountil/:operation', (req, res) => {
     output = {'result': resultFactor};
     return res.status(200).json(output).send();
   }
-
 });
-
-
 
 app.listen(PORT, () => {
   console.log(`yaaay, the port is listening this ${PORT}`);
