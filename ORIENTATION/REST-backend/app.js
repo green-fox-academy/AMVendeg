@@ -96,6 +96,12 @@ app.post('/dountil/:operation', (req, res) => {
   let output = {};
   let resultSum = 0;
   let resultFactor = 1;
+
+
+  if (!input) {
+    output = {"error": "Please provide a number!"};
+    return res.status(404).json(output).send();
+  }
   
   if (operation === 'sum') {
     for (let i = 0; i <= input; i++) {
@@ -112,6 +118,7 @@ app.post('/dountil/:operation', (req, res) => {
     output = {'result': resultFactor};
     return res.status(200).json(output).send();
   }
+
 });
 
 
