@@ -1,0 +1,18 @@
+.table-main {
+  border: 1px solid lightsteelblue;
+}
+
+th {
+  background-color: darkcyan;
+  padding: 10px;
+  color: white;
+  font-family: 'roboto';
+  font-weight: 300;
+}
+
+td {
+  font-family: 'roboto';
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16px;
+}
