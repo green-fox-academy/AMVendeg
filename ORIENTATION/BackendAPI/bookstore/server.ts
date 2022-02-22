@@ -27,7 +27,7 @@ sqlConn.connect((err: Error) => {
 
 // get author list
 app.get('/authors', (_req: Request, res: Response<Author[]>) => {
-  sqlConn.query('SELECT * FROM author LIMIT 10', (err: mysql.MysqlError, authors: Author[]) => {
+  sqlConn.query('SELECT aut_name FROM author', (err: mysql.MysqlError, authors: Author[]) => {
     if (err) {
       console.log(err);
       return res.status(500).send();
@@ -37,9 +37,9 @@ app.get('/authors', (_req: Request, res: Response<Author[]>) => {
   });
 });
 
-
+// get booklist: id and title
 app.get('/booklist', (_req: Request, res: Response<Book[]>) => {
-  sqlConn.query('SELECT book_name FROM book_mast LIMIT 10', (err: mysql.MysqlError, books: Book[]) => {
+  sqlConn.query('SELECT book_id, book_name FROM book_mast', (err: mysql.MysqlError, books: Book[]) => {
     if (err) {
       console.log(err);
       return res.status(500).send();
@@ -48,6 +48,27 @@ app.get('/booklist', (_req: Request, res: Response<Book[]>) => {
     return;
   });
 });
+
+
+// get booklist: with authors datas
+app.get('/booklist', (_req: Request, res: Response<Book[]>) => {
+  sqlConn.query(`SELECT book_mast.book_id, book_mast.book_name, author.aut_name, category.cate_descrip, publisher.pub_name, book_mast.book_price 
+  FROM book_mast 
+  JOIN author 
+    ON book_mast.aut_id=author.aut_id 
+  JOIN category 
+    ON book_mast.cate_id=category.cate_id 
+  JOIN publisher 
+    ON book_mast.pub_id=publisher.pub_id;`, (err: mysql.MysqlError, books: Book[]) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send();
+    }
+    res.json(books);
+    return;
+  });
+});
+
 
 
 
