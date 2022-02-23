@@ -21,10 +21,11 @@ function renderBooks(): void {
   
     books.forEach(book => {
       const tr = document.createElement('tr');
-      tr.appendChild(createFields(`${book.book_id}`));
       tr.appendChild(createFields(`${book.book_name}`));
-      tr.appendChild(createFields(`${book.cate_descrip}`));
       tr.appendChild(createFields(`${book.aut_name}`));
+      tr.appendChild(createFields(`${book.cate_descrip}`));
+      tr.appendChild(createFields(`${book.pub_name}`));
+      tr.appendChild(createFields(`${book.book_price}`));
       table.appendChild(tr);
     });
   });
