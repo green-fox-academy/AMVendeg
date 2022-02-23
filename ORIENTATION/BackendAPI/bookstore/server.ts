@@ -37,17 +37,17 @@ app.get('/authors', (_req: Request, res: Response<Author[]>) => {
   });
 });
 
-// get booklist: id and title
-app.get('/booklist', (_req: Request, res: Response<Book[]>) => {
-  sqlConn.query('SELECT book_id, book_name FROM book_mast', (err: mysql.MysqlError, books: Book[]) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).send();
-    }
-    res.json(books);
-    return;
-  });
-});
+// // get booklist: id and title
+// app.get('/booktitles', (_req: Request, res: Response<Book[]>) => {
+//   sqlConn.query('SELECT book_id, book_name FROM book_mast', (err: mysql.MysqlError, books: Book[]) => {
+//     if (err) {
+//       console.log(err);
+//       return res.status(500).send();
+//     }
+//     res.json(books);
+//     return;
+//   });
+// });
 
 
 // get booklist: with authors datas

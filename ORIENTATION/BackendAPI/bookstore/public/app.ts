@@ -1,6 +1,7 @@
 
 import { Book } from '../books';
 
+
 const table = document.querySelector('table') as HTMLTableElement;
 
 const BASE_URL = 'http://localhost:3000';
@@ -11,20 +12,24 @@ function getBooks(): Promise<Book[]> {
     .then(books => books);
 }
 
+
 // test getBooks: console.log(getBooks());
 
 
 function renderBooks(): void {
   getBooks().then(books => {
-
+  
     books.forEach(book => {
       const tr = document.createElement('tr');
       tr.appendChild(createFields(`${book.book_id}`));
       tr.appendChild(createFields(`${book.book_name}`));
+      tr.appendChild(createFields(`${book.cate_descrip}`));
+      tr.appendChild(createFields(`${book.aut_name}`));
       table.appendChild(tr);
     });
   });
 }
+
 
 
 function createFields(value: string): HTMLTableCellElement {
