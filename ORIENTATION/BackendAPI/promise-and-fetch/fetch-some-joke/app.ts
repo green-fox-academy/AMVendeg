@@ -11,7 +11,9 @@ norrisBtn.addEventListener('click', () => {
       const jokeDiv = document.querySelector('.jokeDiv');
       const theJoke = document.createElement('p');
       theJoke.textContent = joke.replaceAll('&quot;', '"');
-      jokeDiv.appendChild(theJoke);
+      jokeDiv.appendChild(theJoke)
     })
+    // if I misspell resJson.value.joke:
+    .catch((error => console.log('Chuck Norris bite the code',error)));
 });
 
