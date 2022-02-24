@@ -1,0 +1,10 @@
+#give-me-joke {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 25px;
+  background-color: steelblue;
+  border: 6px dashed white;
+  color: white;
+  padding: 20px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
