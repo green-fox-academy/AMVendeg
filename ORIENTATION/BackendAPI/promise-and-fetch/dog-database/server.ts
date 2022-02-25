@@ -4,7 +4,13 @@ import path from 'path';
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-let dogs: string[] = [];
+export interface Dog {
+  name: string,
+  age: number
+}
+
+
+let dogs: Dog[] = [];
 
 
 app.use(express.json());
@@ -23,6 +29,7 @@ app.get('/dogs', (_req, res) => {
 
 // add dog: POST, incoming dog: megnézem mi az amit el tudok küldeni
 app.post('/dogs', (req, res) => {
+  const dog = req.body as Dog;
   console.log({ incomingDog: req.body });
   res.json({ dogs });
 });
