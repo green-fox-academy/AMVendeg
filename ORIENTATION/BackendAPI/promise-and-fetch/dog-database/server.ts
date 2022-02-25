@@ -30,8 +30,11 @@ app.get('/dogs', (_req, res) => {
 // add dog: POST, incoming dog: megnézem mi az amit el tudok küldeni
 app.post('/dogs', (req, res) => {
   const dog = req.body as Dog;
+  dogs.push(dog);
   console.log({ incomingDog: req.body });
-  res.json({ dogs });
+  res.json({ dogs }); // összes doggal visszatér
+  // csak 1 doggal tér vissza:
+  // res.json({ dog });
 });
 
 
