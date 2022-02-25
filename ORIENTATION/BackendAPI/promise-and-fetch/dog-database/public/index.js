@@ -8,6 +8,9 @@ fetch(URL)
   .then((resultJSON) => {
     for (const dog of resultJSON.dogs) {
       console.log({ dog });
+      const li = document.createElement("li");
+      li.textContent = `Dog name: ${dog.name}, age: ${dog.age}`;
+      list.appendChild(li);
     }
   })
   .catch((error) => console.error(error.message));
