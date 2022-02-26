@@ -14,7 +14,7 @@ const mapWith = (array, callback) => {
   }
 
   // OR: with map:
-  output = array.map((e) => callback(e)); 
+  // output = array.map((e) => callback(e)); 
   return output;
 }
 
@@ -23,19 +23,6 @@ const addOne = (number) => {
 }
 
 // Exercise 1:
-console.log(mapWith(numbers, addOne));
 //expected result: [2, 3, 4]
+console.log(mapWith(numbers, addOne));
 
-
-// Exercise 2:
-// Create a callback function which removes every second character from a string
-
-const words = ['map', 'reduce', 'filter'];
-
-
-
-
-
-
-//console.log(mapWith(words, removeSecondLetter));
-// expected result: ['mp','rdc', 'fle']
