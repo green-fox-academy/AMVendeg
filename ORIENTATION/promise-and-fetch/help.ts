@@ -33,7 +33,7 @@ Meghivom ezt az async functiont a megadott URL-n és a then-el kezelem hogy mics
 */
 
 
-
+// error
 const erroredFunction = () => {
   return new Promise(() => {
     throw new Error('Uh-oh!');
