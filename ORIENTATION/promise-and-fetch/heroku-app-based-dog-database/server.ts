@@ -16,7 +16,10 @@ export interface Dog {
   age: number
 };
 
-let sqlConn = mysql.createConnection(process.env.DATABASE_URL);
+// const connURI = 'mysql://root:password@localhost/dogs';
+const DATABASE_URL = 'mysql://hdcashazqczcngk2:lwt92ivo4t8oxi0s@spryrr1myu6oalwl.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/hs0klucb048ixv5q';
+
+let sqlConn = mysql.createConnection(DATABASE_URL);
 // let sqlConn = mysql.createConnection({
 //   password: 'yourpassword',
 //   host: 'localhost',
