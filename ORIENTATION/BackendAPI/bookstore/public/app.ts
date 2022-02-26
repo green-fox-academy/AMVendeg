@@ -1,6 +1,4 @@
-
 import { Book } from '../books';
-
 
 const table = document.querySelector('table') as HTMLTableElement;
 
@@ -12,9 +10,7 @@ function getBooks(): Promise<Book[]> {
     .then(books => books);
 }
 
-
 // test getBooks: console.log(getBooks());
-
 
 function renderBooks(): void {
   getBooks().then(books => {
@@ -30,7 +26,6 @@ function renderBooks(): void {
     });
   });
 }
-
 
 
 function createFields(value: string): HTMLTableCellElement {

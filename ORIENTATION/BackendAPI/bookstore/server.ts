@@ -1,6 +1,5 @@
 import * as mysql from 'mysql';
 import { Request, Response } from 'express';
-import { Author } from './types';
 import { Book } from './books';
 
 const express = require('express');
@@ -23,18 +22,6 @@ sqlConn.connect((err: Error) => {
     return;
   }
   console.log('connection established');
-});
-
-// get author list
-app.get('/authors', (_req: Request, res: Response<Author[]>) => {
-  sqlConn.query('SELECT aut_name FROM author', (err: mysql.MysqlError, authors: Author[]) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).send();
-    }
-    res.json(authors);
-    return;
-  });
 });
 
 
