@@ -34,6 +34,7 @@ conn.connect((err: Error) => {
 // test endpoint:
 app.get('/hello', (req: Request, res: Response) => {
   console.log('hello world');
+  return res.status(200).send();
 });
 
 
