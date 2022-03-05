@@ -41,7 +41,6 @@ app.get('/hello', (_req: Request, res: Response) => {
 app.get('/ids', (_req: Request, res: Response<Post[]>) => {
   conn.query(`SELECT id FROM post`, (err: mysql.MysqlError, posts: Post[]) => {
     if (err) {
-      console.log(err);
       return res.status(500).send();
     }
     res.json(posts);
@@ -54,7 +53,6 @@ app.get('/ids', (_req: Request, res: Response<Post[]>) => {
 app.get('/posts', (_req: Request, res: Response<Post[]>) => {
   conn.query(`SELECT * FROM post`, (err: mysql.MysqlError, posts: Post[]) => {
     if (err) {
-      console.log(err);
       return res.status(500).send();
     }
     res.json(posts);
@@ -69,14 +67,27 @@ app.post('/posted', (req: Request, res: Response) => {
   conn.query(`INSERT INTO post (id, title, url, timestamp, score) VALUES (?,?,?,?,?)`,
   
   [post.id, post.title, post.url, `${post.timestamp}`, `${post.score}`],
-  (error, result) => {
+  (error) => {
     if (error) {
-      res.status(500).json(error);
+      res.status(500).send();
       return;
     }
-    result = 'Post is added succesfully.';
-    res.status(200).json(result);
+    res.status(200).send('Post is added successfully.');
   });
+});
+
+
+
+// delete post by id
+app.delete('/:id', (req: Request, res: Response) => {
+  const { id } = req.params;
+  conn.query(`DELETE FROM post WHERE id = ${id}`, error => {
+    if (error) {
+      res.status(500).send();
+      return;
+    }
+  });
+  res.status(200).send('Post is deleted from database.')
 });
 
 
