@@ -77,7 +77,6 @@ app.post('/posted', (req: Request, res: Response) => {
 });
 
 
-
 // delete post by id
 app.delete('/:id', (req: Request, res: Response) => {
   const { id } = req.params;
@@ -91,8 +90,34 @@ app.delete('/:id', (req: Request, res: Response) => {
 });
 
 
+// vote up
+app.put('/:id/upvote', (req: Request, res: Response) => {
+  const { id } = req.params;
+  conn.query(`UPDATE post SET score = score + 1 WHERE id = ${id}`, error => {
+    if (error) {
+      res.status(500).send();
+      return;
+    }
+  });
+  res.status(200).send('Post is upvoted.')
+});
 
 
+// vote down
+app.put('/:id/downvote', (req: Request, res: Response) => {
+  const { id } = req.params;
+  conn.query(`UPDATE post SET score = score - 1 WHERE id = ${id}`, error => {
+    if (error) {
+      res.status(500).send();
+      return;
+    }
+  });
+  res.status(200).send('Post is downvoted.')
+});
+
+
+
+// app listen
 app.listen(PORT, () => {
   console.log(`Yaaay app listening to: ${PORT}`);
 });
