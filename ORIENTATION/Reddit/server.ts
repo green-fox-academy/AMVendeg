@@ -28,7 +28,7 @@ conn.connect((err: Error) => {
 });
 
 
-// endpoints
+// ENPOINTS:
 
 // test endpoint:
 app.get('/hello', (_req: Request, res: Response) => {
@@ -37,9 +37,9 @@ app.get('/hello', (_req: Request, res: Response) => {
 });
 
 
-// on '/' come back the posts
+// test endpoint ids:
 app.get('/ids', (_req: Request, res: Response<Post[]>) => {
-  conn.query(`SELECT post.id FROM post`, (err: mysql.MysqlError, posts: Post[]) => {
+  conn.query(`SELECT id FROM post`, (err: mysql.MysqlError, posts: Post[]) => {
     if (err) {
       console.log(err);
       return res.status(500).send();
@@ -50,22 +50,34 @@ app.get('/ids', (_req: Request, res: Response<Post[]>) => {
 });
 
 
-
-// POST - postman
-app.post('/posts', (_req: Request, res: Response) => {
-  
-  return res.status(201).send('created');
+// get all posts
+app.get('/posts', (_req: Request, res: Response<Post[]>) => {
+  conn.query(`SELECT * FROM post`, (err: mysql.MysqlError, posts: Post[]) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send();
+    }
+    res.json(posts);
+    return;
+  });
 });
 
 
-
-
-
-
-
-
-
-
+// POST - add one post to the database
+app.post('/posted', (req: Request, res: Response) => {
+  const post: Post  = req.body;
+  conn.query(`INSERT INTO post (id, title, url, timestamp, score) VALUES (?,?,?,?,?)`,
+  
+  [post.id, post.title, post.url, `${post.timestamp}`, `${post.score}`],
+  (error, result) => {
+    if (error) {
+      res.status(500).json(error);
+      return;
+    }
+    result = 'Post is added succesfully.';
+    res.status(200).json(result);
+  });
+});
 
 
 
