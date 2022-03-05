@@ -1,7 +1,6 @@
 import * as mysql from 'mysql';
 import { Request, Response } from 'express';
-import { allowedNodeEnvironmentFlags } from 'process';
-import { request } from 'http';
+import { Post } from './posts';
 
 const express = require('express');
 const app = express();
@@ -16,7 +15,7 @@ let conn = mysql.createConnection({
   password: 'yourpassword',
   host: 'localhost',
   user: 'root',
-  database: '',
+  database: 'reddit',
 });
 
 // sql connection error handling
@@ -32,16 +31,30 @@ conn.connect((err: Error) => {
 // endpoints
 
 // test endpoint:
-app.get('/hello', (req: Request, res: Response) => {
+app.get('/hello', (_req: Request, res: Response) => {
   console.log('hello world');
   return res.status(200).send();
 });
 
 
+// on '/' come back the posts
+app.get('/ids', (_req: Request, res: Response<Post[]>) => {
+  conn.query(`SELECT post.id FROM post`, (err: mysql.MysqlError, posts: Post[]) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send();
+    }
+    res.json(posts);
+    return;
+  });
+});
 
-// GET /posts
-app.get('/posts', (req: Request, res: Response) => {
 
+
+// POST - postman
+app.post('/posts', (_req: Request, res: Response) => {
+  
+  return res.status(201).send('created');
 });
 
 
