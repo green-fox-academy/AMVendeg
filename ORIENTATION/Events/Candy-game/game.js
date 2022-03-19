@@ -13,16 +13,17 @@ const buyLollypopsBtn = document.querySelector('.buy-lollypops');
 buyLollypopsBtn.disabled = true;
 const lollypopCounter = document.querySelector('.lollypops');
 let lollyPopIcon = '🍭';
+let lollypopPrice = 100;
 
 createCandyBtn.addEventListener('click', () => {
   candyCounter += 1;
   candiesNumber.textContent = `${candyCounter}`;
-  
-  if (candyCounter >= 10) {
+
+  if (candyCounter >= lollypopPrice) {
     buyLollypopsBtn.disabled = false;
     buyLollypopsBtn.addEventListener('click', () => {
       lollypopCounter.textContent += lollyPopIcon;
-      candyCounter -= 10;
+      candyCounter -= lollypopPrice;
       candiesNumber.textContent = `${candyCounter}`;
     });
   }
