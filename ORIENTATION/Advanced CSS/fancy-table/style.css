@@ -1,0 +1,40 @@
+table {
+  border-collapse: collapse;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 14px;
+  color: #676985;
+}
+
+table thead td {
+  background-color: #1a1e25;
+  font-size: 20px;
+  color: #bbc2cb;
+  padding: 20px;
+}
+
+.first-column-head, .first-column-data {
+  width: 150px;
+}
+
+.second-column-head {
+  width: 250px;
+}
+
+table tbody {
+  background-color: #ffffff;
+}
+
+table tbody tr:nth-child(2n) {
+  background-color: #ebebeb;
+}
+
+table tr td {
+  padding: 20px;
+  border: 1px solid lightgrey;
+}
+
+.second-column-data:before {
+  content: '$ ';
+
+}
