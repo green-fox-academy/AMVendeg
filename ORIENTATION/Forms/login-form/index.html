@@ -8,16 +8,16 @@
   </head>
   <body>
     <div class="formdiv">
-    <form action="post">
+    <form action="" method="post">
       <h2>Account login</h2>
 
       <p>USERNAME</p>
       <label for="username"></label>
-      <input type="text" id="username">
+      <input type="text" id="username" required>
 
       <p>PASSWORD</p>
       <label for="password"></label>
-      <input type="password" id="password">
+      <input type="password" id="password" pattern="[A-Za-z]" required>
 
       <p class="forgot-password">Forgot password?</p>
 
