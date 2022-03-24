@@ -23,26 +23,44 @@ button {
   vertical-align: center;
   color: #ffffff;
   border: none;
-  box-shadow: 1px 1px #302f2f;
+  box-shadow: 0px 0px 1px 1px #302f2f;
+}
+
+button:active {
+  opacity: 0.9;
 }
 
 .blue {
-  background-color: #445ea1;
+  background-color: hsl(223, 41%, 45%);
   color: #b8c9f4;
   border-top: 2px solid #506bb4;
   border-bottom: 2px solid #26356c;
 }
 
+.blue:hover {
+  background-color: hsl(223, 51%, 55%);
+}
+
+
 .light-blue {
-  background-color: #17b0ed;
+  background-color: hsl(197, 86%, 51%);
   color: #d2effe;
   border-top: 2px solid #33c4f8;
   border-bottom: 2px solid #26356c;
 }
 
+.light-blue:hover {
+  background-color: hsl(197, 96%, 61%);
+}
+
 .black {
-  background-color: #27282a;
+  background-color: hsl(220, 4%, 16%);
   color: #949494;
   border-top: 2px solid #36383e;
   border-bottom: 1px solid #222329;
 }
+
+.black:hover {
+  background-color: hsl(220, 14%, 26%);
+}
+
