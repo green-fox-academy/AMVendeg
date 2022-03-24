@@ -8,11 +8,10 @@
 
 const btn = document.querySelector('button');
 
-let today = new Date();
-let currentTime = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+const today = new Date();
 
 const mytimeStamp = () => {
-  console.log(currentTime);
+  console.log(`${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`);
 };
 
 btn.addEventListener('click', mytimeStamp);
