@@ -14,6 +14,7 @@
   display: block;
   position:relative;
   padding: 12px;
+  border: none;
 }
 
 #trash {
@@ -36,7 +37,7 @@
   color: #ffffff;
   left: 40px;
   top: 0px;
-  padding: 10.5px 40px 10.5px 40px;
+  padding: 12px 40px 12px 40px;
 }
 
 
@@ -55,5 +56,5 @@
   color: #ffffff;
   left: 40px;
   top: 0px;
-  padding: 10.5px 41px 10.5px 41px;
+  padding: 12px 40px 12px 40px;
 }
