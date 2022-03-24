@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+  font-weight: 300;
+}
+
+body {
+  background-color: #e0e0de;
+}
+
+h2 {
+  text-transform: uppercase;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 10px;
+  line-height: 20px;
+}
+
+.formdiv {
+  margin: auto;
+  width: 400px;
+  height: 350px;
+  background-color: white;
+  margin-top: 20px;
+}
+
+form {
+  padding: 50px;
+  position: relative;
+}
+
+#username, #password {
+  border: 1px solid lightgray;
+  padding: 10px 80px 10px 80px;
+  margin-bottom: 20px;
+}
+
+.forgot-password {
+  position: absolute;
+  bottom: 50px;
+  right: 55px;
+}
+
+.login-btn {
+  position: absolute;
+  bottom: 0px;
+  left: 50px;
+  padding: 10px 40px 10px 40px;
+  background-color: #141414;
+  border: none;
+  border-radius: 30px;
+  color: #ffffff;
+}
+
