@@ -30,13 +30,6 @@ conn.connect((err: Error) => {
 
 // ENPOINTS:
 
-// test endpoint:
-app.get('/hello', (_req: Request, res: Response) => {
-  console.log('hello world');
-  return res.status(200).send();
-});
-
-
 // test endpoint ids:
 app.get('/ids', (_req: Request, res: Response<Post[]>) => {
   conn.query(`SELECT id FROM post`, (err: mysql.MysqlError, posts: Post[]) => {
