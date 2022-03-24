@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+  font-weight: 300;
+}
+
+#trash, #trash-labelled, #check-labelled {
+  background-color: #333232;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  list-style-type: none;
+  display: block;
+  position:relative;
+  padding: 12px;
+}
+
+#trash {
+  color: #ffffff;
+}
+
+
+#trash-labelled {
+  color: #9e0303;
+}
+
+#trash-labelled .trash-label {
+  display: none;
+}
+
+#trash-labelled:hover .trash-label{
+  display: block;
+  position: absolute;
+  background-color: #9e0303;
+  color: #ffffff;
+  left: 40px;
+  top: 0px;
+  padding: 10.5px;
+}
+
+
+#check-labelled {
+  color: #017a01;
+}
+
+#check-labelled .check-label {
+  display: none;
+}
+
+#check-labelled:hover .check-label{
+  display: block;
+  position: absolute;
+  background-color: #017a01;
+  color: #ffffff;
+  left: 40px;
+  top: 0px;
+  padding: 10.5px;
+}
