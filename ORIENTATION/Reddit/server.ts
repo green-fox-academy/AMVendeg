@@ -11,7 +11,7 @@ app.use(express.static('public'));
 app.use(express.json()); 
 
 // mysql commection
-let conn = mysql.createConnection({
+const conn = mysql.createConnection({
   password: 'yourpassword',
   host: 'localhost',
   user: 'root',
@@ -114,8 +114,6 @@ app.put('/:id/downvote', (req: Request, res: Response) => {
   });
   res.status(200).send('Post is downvoted.')
 });
-
-
 
 // app listen
 app.listen(PORT, () => {
