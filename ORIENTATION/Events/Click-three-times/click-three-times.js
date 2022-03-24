@@ -11,8 +11,8 @@ let counter = 0;
 btn.addEventListener('click', (event) => {
     counter += 1;
     if (counter === 3) {
-      const timeOut = setTimeout(() => {
-       let note = document.createElement('h2');
+     setTimeout(() => {
+       const note = document.createElement('h2');
        note.textContent = `5 seconds elapsed and clicked ${counter} times`;
        document.querySelector('.container').appendChild(note);
        event.stopPropagation();
