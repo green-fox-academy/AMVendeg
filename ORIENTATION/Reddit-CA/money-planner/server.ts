@@ -63,6 +63,33 @@ app.get('/plan/names', (_req: Request, res: Response) => {
 });
 
 
+// get plans by id
+app.get('/plan/:id', (req: Request, res: Response) => {
+  // const id = req.params.id;
+  const { id } = req.params;
+
+  // if the id not a number
+  if (isNaN(+id)) {
+    return res.status(400).send('Please provide a number.');
+  }
+
+  // endpoint for id: error, zero plan, plan id result
+  conn.query('SELECT * FROM plans WHERE id = ?', [id], (err, plans) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send(mySqlErrorMessage);
+      return;
+    }
+
+    if (plans.lenght === 0) {
+      return res.status(404).send('Plan not found.');
+    }
+
+    res.status(200).json(plans[0]);
+    return;
+  });
+});
+
 
 
 
