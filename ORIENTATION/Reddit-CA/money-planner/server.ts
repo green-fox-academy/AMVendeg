@@ -1,7 +1,7 @@
 // 0.step npm init -y
 
 import * as mysql from 'mysql';
-import { Request, Response } from 'express';
+import { request, Request, Response } from 'express';
 
 const express = require('express');
 const app = express();
@@ -63,7 +63,7 @@ app.get('/plan/names', (_req: Request, res: Response) => {
 });
 
 
-// get plans by id
+// GET endpoint for ID param
 app.get('/plan/:id', (req: Request, res: Response) => {
   // const id = req.params.id;
   const { id } = req.params;
@@ -73,7 +73,7 @@ app.get('/plan/:id', (req: Request, res: Response) => {
     return res.status(400).send('Please provide a number.');
   }
 
-  // endpoint for id: error, zero plan, plan id result
+  // endpoint for id cases: error, zero plan, plan id result
   conn.query('SELECT * FROM plans WHERE id = ?', [id], (err, plans) => {
     if (err) {
       console.log(err);
@@ -90,6 +90,34 @@ app.get('/plan/:id', (req: Request, res: Response) => {
   });
 });
 
+
+// POST endpoint
+app.post('/plan', (req: Request, res: Response) => {
+  const { name, plannedSpent } = req.body;
+
+  // if there is no name or plannedSpent amount
+  if (!name || !plannedSpent) {
+    return res.status(400).send('Please provide plan name and planned spent.');
+  }
+  
+    conn.query('INSERT INTO plans (name, plannedSpent) VALUES (?,?)', [name, plannedSpent], (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send(mySqlErrorMessage);
+        return;
+      }
+      
+      conn.query('SELECT * FROM plans WHERE id = ?', [result.insertId], (err, plans) => {
+        if (err) {
+          console.log(err);
+          res.status(500).send(mySqlErrorMessage);
+          return;
+        }
+
+        return res.status(200).json(plans[0]);
+      });
+    });
+});  
 
 
 
