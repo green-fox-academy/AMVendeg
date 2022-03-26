@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+  font-weight: 300;
+}
+
+.main-container {
+  width: 400px;
+  height: 500px;
+  padding: 16px;
+  margin: auto;
+  display: flex;
+  border: 1px solid lightblue;
+  justify-content: center;
+}
+
+.selection, .add-plan, .plan-container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  justify-content: center;
+  background-color: rgb(233, 244, 252);
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.plan, .name, .planned {
+  line-height: 26px;
+}
+
+#name, #plans, #planned-spent {
+  border: 1px solid rgb(218, 242, 250);
+  padding: 8px;
+
+}
+
+.add-plan-button {
+  margin-top: 10px;
+  border: 1px solid rgb(218, 242, 250);
+  padding: 8px;
+  background-color: rgb(136, 214, 245);
+}
+
+
+
+
+
+
+
+

@@ -10,38 +10,39 @@
   
     <div class="main-container">
       <div class="upper-row">
-        <div class="left-side">
-          <label for="plans">Choose a plan</label>
+        <div class="selection">
+          <label for="plans" class="plan">Choose a plan:</label>
           <select name="plans" id="plans">
             <option value="" class="default-option" selected disabled>Select plan</option>
           </select>
         </div>
 
-        <div class="right-side">
+        <div class="add-plan">
           <form>
-            <label for="name">Name</label>
-            <input type="text" id="name">
-            <label for="planned-spent">Planned spent</label>
+            <label for="name" class="name">Name</label>
+            <input type="text" id="name"><br>
+            <label for="planned-spent" class="planned">Planned spent</label>
             <input type="number" id="planned-spent">
           </form>
 
           <button class="add-plan-button">Add new plan</button>
         </div>
-      </div>
-      <div class="plan-container">
-        <h1>Please select a plan!</h1>
+     
+        <div class="plan-container">
+          <h3>Please select a plan!</h3>
 
-        <div class="plan-card">
-          <h3>Bills</h3>
-          <h5>200 / 1000 $</h5>
-          <progress id="progress"  value="200" max="1000"></progress>
-          <div class="button-container">
-            <button>Delete</button>
-            <button>Add spent</button>
-            <input type="number" id="add-spent">
+          <div class="plan-card">
+            <h4>Bills</h4>
+            <h5>200 / 1000 $</h5>
+            <progress id="progress"  value="200" max="1000"></progress>
+            <div class="button-container">
+              <button>Delete</button>
+              <button>Add spent</button>
+              <input type="number" id="add-spent">
+            </div>
           </div>
-        </div>
 
+      </div>
       </div>
     </div>
 
