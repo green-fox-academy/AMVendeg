@@ -50,6 +50,20 @@ conn.query(createPlanTableQuery, (err) => {
 
 // ENDPOINTS
 
+// GET all data form database
+app.get('/', (_req: Request, res: Response) => {
+  conn.query('SELECT * FROM plans', (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send(mySqlErrorMessage);
+      return;
+    }
+    res.status(200).send(result);
+  });
+});
+
+
+
 // GET table datas
 app.get('/plan/names', (_req: Request, res: Response) => {
   conn.query('SELECT id, name FROM plans', (err, result) => {
@@ -92,33 +106,77 @@ app.get('/plan/:id', (req: Request, res: Response) => {
 
 
 // POST endpoint
-app.post('/plan', (req: Request, res: Response) => {
-  const { name, plannedSpent } = req.body;
+app.post(
+  '/plan',
+  (req: Request, res: Response) => {
+    const { name, plannedSpent } = req.body;
 
-  // if there is no name or plannedSpent amount
-  if (!name || !plannedSpent) {
-    return res.status(400).send('Please provide plan name and planned spent.');
-  }
-  
-    conn.query('INSERT INTO plans (name, plannedSpent) VALUES (?,?)', [name, plannedSpent], (err, result) => {
-      if (err) {
-        console.log(err);
-        res.status(500).send(mySqlErrorMessage);
-        return;
-      }
-      
-      conn.query('SELECT * FROM plans WHERE id = ?', [result.insertId], (err, plans) => {
+    if (!name || !plannedSpent) {
+      return res.status(400).send('Please provide plan name and planned spent');
+    }
+
+    conn.query(
+      'INSERT INTO plans (name, plannedSpent) VALUES (?,?)',
+      [name, plannedSpent],
+      (err, result) => {
         if (err) {
           console.log(err);
           res.status(500).send(mySqlErrorMessage);
           return;
         }
 
-        return res.status(200).json(plans[0]);
-      });
-    });
-});  
+        conn.query(
+          'SELECT * FROM plans WHERE id = ?',
+          [result.insertId],
+          (err, plans) => {
+            if (err) {
+              console.log(err);
+              res.status(500).send(mySqlErrorMessage);
+              return;
+            }
 
+            return res.status(200).json(plans[0]);
+          }
+        );
+      }
+    );
+  }
+);
+  
+
+
+// PUT endpoint
+app.put(
+  '/plan/:id/:spent',
+  (req: Request<{ id: string; spent: string }>, res: Response) => {
+    const { id, spent } = req.params;
+
+  if (isNaN(+id) || isNaN(+spent)) {
+    return res.status(400).send('Please provide number for id and spent.');
+  }
+  
+  conn.query('UPDATE plans SET actualSpent = actualSpent + ? WHERE id = ?', [spent, id], (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send(mySqlErrorMessage);
+      return;
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).send('Plan not found');
+    }
+
+    conn.query('SELECT * FROM plans WHERE id = ?', [id], (err, plans) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send(mySqlErrorMessage);
+        return;
+      }
+
+      return res.status(200).json(plans[0]);
+    });
+  });
+});
 
 
 // app listen
