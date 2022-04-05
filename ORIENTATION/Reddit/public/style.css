@@ -1,0 +1,113 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(231, 234, 236);
+}
+
+header {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+header h2 {
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  font-size: 36px;
+}
+
+header img {
+  position: absolute;
+  background-size: cover;
+  z-index: -1;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.left-container {
+  width: 60%;
+  height: 100%;
+  background-color: white;
+  margin-right: 10px;
+  padding: 20px;
+}
+
+.right-container {
+  width: 40%;
+  height: 100%;
+}
+
+.submit {
+  width: 100%;
+  height: 40px;
+  background-color: deepskyblue;
+  border: none;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.about {
+  padding: 10px;
+  background-color:rgb(240, 241, 243);
+}
+
+.about-desc {
+  padding: 10px;
+  background-color:rgb(228, 232, 238);
+}
+
+.about-desc p {
+  text-align: center;
+}
+
+.about-desc ul {
+  text-align: left;
+}
+
+.post {
+  display: flex;
+  padding: 20px;
+}
+
+.voting {
+  display: flex;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  vertical-align: middle;
+}
+
+.voting img {
+  width: 20px;
+}
+
+.contain .title {
+  font-size: 36px;;
+}
+
+.contain span {
+  font-size: 12px;
+}
+
+.label {
+  background-color: deepskyblue;
+  border: none;
+  height: 16px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: white;
+  margin-top: 30px;
+}
+
+
+
